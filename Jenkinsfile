@@ -11,8 +11,6 @@ pipeline {
             }
             steps {
                 sh '''
-                    set -ex
-                    export NPM_CONFIG_CACHE=$(pwd)/.npm-cache
                     ls -la
                     node --version
                     npm --version
