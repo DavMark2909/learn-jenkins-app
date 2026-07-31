@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    environment {
+        NETLIFY_AUTH_TOKEN = credentials('netlify-token')
+    }
+
     stages {
         stage('Build') {
             agent {
@@ -44,6 +48,7 @@ pipeline {
             steps {
                 sh '''
                     npx netlify-cli --version
+                    npx netlify-cli status
                 '''
             }
         }
